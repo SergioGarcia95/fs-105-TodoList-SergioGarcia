@@ -35,11 +35,16 @@ import { useState } from "react";
 								<input placeholder="add your task" className="task" onKeyDown={onKeyDown} value={newTask} />
 							</form>
 						<div className="taskButton">
-						{taskList.length === 0 ? ("") :(
-							taskList.map((task,index) => <p className="taskItem" key={index}> {task} <button  onClick={() => deleteTask(task)}>❌</button> </p>))}
+							{taskList.length === 0 ? ( <p className="taskItem">No hay tareas pendientes</p>):(
+								taskList.map((task, index) => (
+									<p className="taskItem" key={index}>
+										{task} <button onClick={() => deleteTask(task)}>❌</button>
+									</p>
+								))
+								)}
 						</div>
 						<div>
-						<p className="itemLeft">{taskList.length} Item{taskList.length !== 1 ? 's' : ''} left</p>
+						<p className="itemLeft">{taskList.length} Task{taskList.length !== 1 ? 's' : ''}</p>
 						</div>
 					</div>
 			</div>
